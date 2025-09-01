@@ -269,26 +269,17 @@
 
             </div>
 
-            <!-- Second AI Recommendations Header -->
-            <div class="job-offers-header accordion-header" style="display: flex; justify-content: space-between; align-items: center; margin: 32px 0 0 0; position: relative; padding: 16px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; cursor: pointer; transition: all 0.3s ease; border: 1px solid #dee2e6;" onclick="toggleAccordion('skills-accordion')" onmouseover="this.style.background='linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%)'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.background='linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+            <!-- Skills-based Recommendations Header -->
+            <div class="job-offers-header" style="display: flex; justify-content: space-between; align-items: center; margin: 32px 0 24px 0; position: relative;">
                 <div style="display: flex; align-items: center; gap: 12px;">
-                    <a href="#" id="open-ai-job-recommendations-modal" class="ai-icon-link" title="Tööpakkumiste soovitused">AI</a>
                     <h2 style="margin: 0; font-size: 1.5rem; color: var(--text-color);">Oskuste põhjal soovitatud tööpakkumised</h2>
-                    <span class="job-count" style="background: var(--primary-color); color: white; padding: 4px 10px; border-radius: 16px; font-size: 0.8rem; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">6</span>
-                    <span style="font-size: 0.9rem; color: #6c757d; font-weight: 500;">Klõpsa avamiseks</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <svg class="accordion-arrow" width="24" height="24" style="transition: all 0.3s ease; transform: rotate(-90deg); color: var(--primary-color);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
                 </div>
             </div>
 
-            <div class="accordion-content" id="skills-accordion" style="display: none; margin-top: 0; overflow: hidden; transition: all 0.3s ease;">
-                <div class="job-listings-container" style="padding-top: 24px; background: linear-gradient(to bottom, #f8f9fa 0%, transparent 20px);"
+            <div class="job-listings-container">
 
                 <!-- Job 4: IT Projektijuht (TechNordic) -->
-                <div class="job-card" id="first-skills-job">
+                <div class="job-card">
                     <div class="job-card-header">
                         <div class="job-title-section">
                             <div>
@@ -455,78 +446,9 @@
                     </div>
                 </div>
 
-                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Enhanced accordion functionality with smooth animations and auto-scroll
-        function toggleAccordion(accordionId) {
-            const content = document.getElementById(accordionId);
-            const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-            const header = content.previousElementSibling;
-            const hintText = header.querySelector('span[style*="Klõpsa"]');
-            
-            if (content.style.display === 'none' || content.style.display === '') {
-                // Opening animation
-                content.style.display = 'block';
-                content.style.maxHeight = '0px';
-                content.style.opacity = '0';
-                
-                // Trigger animation
-                setTimeout(() => {
-                    content.style.maxHeight = '2000px';
-                    content.style.opacity = '1';
-                    arrow.style.transform = 'rotate(0deg)';
-                    arrow.style.color = '#28a745';
-                    if (hintText) hintText.textContent = 'Klõpsa sulgemiseks';
-                    
-                    // Auto-scroll to first job after animation completes
-                    setTimeout(() => {
-                        const firstJob = document.getElementById('first-skills-job');
-                        if (firstJob) {
-                            firstJob.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'start',
-                                inline: 'nearest' 
-                            });
-                        }
-                    }, 300);
-                }, 10);
-                
-            } else {
-                // Closing animation
-                content.style.maxHeight = '0px';
-                content.style.opacity = '0';
-                arrow.style.transform = 'rotate(-90deg)';
-                arrow.style.color = 'var(--primary-color)';
-                if (hintText) hintText.textContent = 'Klõpsa avamiseks';
-                
-                setTimeout(() => {
-                    content.style.display = 'none';
-                }, 300);
-            }
-        }
-
-        // Add keyboard accessibility
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordionHeader = document.querySelector('.accordion-header');
-            if (accordionHeader) {
-                accordionHeader.setAttribute('tabindex', '0');
-                accordionHeader.setAttribute('role', 'button');
-                accordionHeader.setAttribute('aria-expanded', 'false');
-                accordionHeader.setAttribute('aria-label', 'Oskuste põhjal soovitatud tööpakkumised - klõpsa avamiseks');
-                
-                accordionHeader.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        toggleAccordion('skills-accordion');
-                    }
-                });
-            }
-        });
-    </script>
 
     <!-- Job Detail Modals -->
     <!-- Job 1: IT Projektijuht (Digiraju) -->
@@ -695,38 +617,34 @@
             <div class="job-modal-body">
                 <h2>IT Projektijuht</h2>
                 <div class="job-meta">
-                    <span>📍 Tallinn</span>
-                    <span>💰 3800-5200€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Hübriid (3 p. kontoris)</span>
+                    <span>Registrikood: 14567891</span>
+                    <span>Avaldatud: 30.08.2025</span>
+                    <span>Tööpakkumise nr: 1754235</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>Rahvusvaheliste digitaliseerimisprojektide juhtimine</li>
-                    <li>Projektide planeerimise ja koordineerimise</li>
-                    <li>Meeskondade juhtimine ja motiveerimise</li>
-                    <li>Riskide hindamine ja maandamine</li>
-                    <li>Klientide ja sidusgruppidega suhtlemine</li>
-                </ul>
+                <p>Otsime IT projektijuhti rahvusvaheliste digitaliseerimisprojektide juhtimiseks. Eeldame PMP sertifikaati, kogemust agiilsete metoodikatega ning head analüütilist mõtlemist. Vastutad projektide kogumise, töötlemise ja analüüsimise eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Konkurentsivõimelist töötasu (3800-5200€)</li>
-                    <li>Hübriidset töökorraldust</li>
-                    <li>Rahvusvaheliste projektide kogemust</li>
-                    <li>Professionaalset arendust ja koolitusi</li>
-                    <li>Motiveeritud ja tugev meeskonda</li>
-                </ul>
+                <p>Huvitavaid rahvusvahelisi projekte, hübriidtööd (3 päeva kontoris), arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>TechNordic OÜ</td></tr>
-                    <tr><td>Ametikoht</td><td>IT Projektijuht</td></tr>
-                    <tr><td>Asukoht</td><td>Tallinn</td></tr>
-                    <tr><td>Töötasu</td><td>3800-5200€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Harju maakond, Tallinn, Kesklinn</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>3800-5200 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Hübriid (3 päeva kontoris)</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Hübriid (3 p. kontoris)</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>30.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Mari Kask, Projektijuht, e-post: <a href="mailto:mari.kask@technordic.ee">mari.kask@technordic.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
@@ -750,38 +668,34 @@
             <div class="job-modal-body">
                 <h2>Digitaalsete projektide juht</h2>
                 <div class="job-meta">
-                    <span>📍 Kaugtöö</span>
-                    <span>💰 3000-4300€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Paindlik graafik</span>
+                    <span>Registrikood: 14567892</span>
+                    <span>Avaldatud: 28.08.2025</span>
+                    <span>Tööpakkumise nr: 1754236</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>Veebirakenduste ja mobiilirakenduste arendusprojektide koordineerimine</li>
-                    <li>Digitaalse transformatsiooni projektide juhtimine</li>
-                    <li>Arendusmeeskondade koordineerimine</li>
-                    <li>Klientide vajaduste analüüsimine</li>
-                    <li>Projektide dokumenteerimine ja aruandlus</li>
-                </ul>
+                <p>Otsime digitaalsete projektide juhti veebirakenduste ja mobiilirakenduste arendusprojektide koordineerimiseks. Eeldame kogemust digitaalse transformatsiooni valdkonnas, kogemust BI tööriistedega ning head analüütilist mõtlemist. Vastutad projektide kogumise, töötlemise ja analüüsimise eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Paindlikku töökorraldust (100% kaugtöö)</li>
-                    <li>Konkurentsivõimelist töötasu</li>
-                    <li>Innovaatilisi projekte</li>
-                    <li>Professionaalset arendust</li>
-                    <li>Toetavat meeskonda</li>
-                </ul>
+                <p>Huvitavaid digitaalseid projekte, kaugtööd (100%), arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>DigiTarkus OÜ</td></tr>
-                    <tr><td>Ametikoht</td><td>Digitaalsete projektide juht</td></tr>
-                    <tr><td>Asukoht</td><td>Kaugtöö</td></tr>
-                    <tr><td>Töötasu</td><td>3000-4300€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Kaugtöö</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>3000-4300 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Paindlik graafik</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Paindlik graafik</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>28.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Peeter Kask, Digijuht, e-post: <a href="mailto:peeter.kask@digitarkus.ee">peeter.kask@digitarkus.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
@@ -805,38 +719,34 @@
             <div class="job-modal-body">
                 <h2>Scrum Master</h2>
                 <div class="job-meta">
-                    <span>📍 Tallinn</span>
-                    <span>💰 2800-3500€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Hübriid (2 p. kontoris)</span>
+                    <span>Registrikood: 14567893</span>
+                    <span>Avaldatud: 26.08.2025</span>
+                    <span>Tööpakkumise nr: 1754237</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>Agiilsete arendusmeeskondade toetamine</li>
-                    <li>Scrum ceremooniate läbiviimine</li>
-                    <li>Meeskonna tööprotsesside optimeerimine</li>
-                    <li>Takistuste eemaldamine ja probleemide lahendamine</li>
-                    <li>Meeskonna coaching ja juhendamine</li>
-                </ul>
+                <p>Otsime Scrum Masterit agiilsete arendusmeeskondade toetamiseks. Eeldame sertifikaati ja kogemust Agile metoodikatega ning tugevat kommunikatsioonioskust. Vastutad meeskondade coaching ja juhendamise eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Professionaalset arengut Agile valdkonnas</li>
-                    <li>Hübriidset töökorraldust</li>
-                    <li>Motiveeritud arendusmeeskonda</li>
-                    <li>Sertifikaatide rahastamist</li>
-                    <li>Kaasaegset töökeskkonda</li>
-                </ul>
+                <p>Huvitavaid agiilseid projekte, hübriidtööd (2 päeva kontoris), arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>TechFlow AS</td></tr>
-                    <tr><td>Ametikoht</td><td>Scrum Master</td></tr>
-                    <tr><td>Asukoht</td><td>Tallinn</td></tr>
-                    <tr><td>Töötasu</td><td>2800-3500€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Harju maakond, Tallinn, Kesklinn</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>2800-3500 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Hübriid (2 päeva kontoris)</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Hübriid (2 p. kontoris)</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>26.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Anna Tamm, Personalijuht, e-post: <a href="mailto:anna.tamm@techflow.ee">anna.tamm@techflow.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
@@ -860,38 +770,34 @@
             <div class="job-modal-body">
                 <h2>IT Arendaja</h2>
                 <div class="job-meta">
-                    <span>📍 Tallinn</span>
-                    <span>💰 2500-3200€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Hübriid (2 p. kontoris)</span>
+                    <span>Registrikood: 14567894</span>
+                    <span>Avaldatud: 29.08.2025</span>
+                    <span>Tööpakkumise nr: 1754238</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>Veebirakenduste ja mobiilirakenduste arendamine</li>
-                    <li>JavaScript, React ja Node.js tehnoloogiate kasutamine</li>
-                    <li>Koodi kvaliteedi tagamine ja testimine</li>
-                    <li>Meeskonnatöö arendusprojektides</li>
-                    <li>Tehnilise dokumentatsiooni koostamine</li>
-                </ul>
+                <p>Otsime IT arendajat meie meeskonda veebirakenduste ja mobiilirakenduste arendamiseks. Eeldame kogemust JavaScript, React ja Node.js tehnoloogiatega ning head analüütilist mõtlemist. Vastutad koodi kvaliteedi tagamise ja testimise eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Kaasaegseid arendustehnoloogiaid</li>
-                    <li>Hübriidset töökorraldust</li>
-                    <li>Professionaalset arengut</li>
-                    <li>Innovaatilisi projekte</li>
-                    <li>Võimalust õppida uusi tehnoloogiaid</li>
-                </ul>
+                <p>Huvitavaid arendusprojekte, hübriidtööd (2 päeva kontoris), arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>CodeCraft OÜ</td></tr>
-                    <tr><td>Ametikoht</td><td>IT Arendaja</td></tr>
-                    <tr><td>Asukoht</td><td>Tallinn</td></tr>
-                    <tr><td>Töötasu</td><td>2500-3200€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Harju maakond, Tallinn, Kesklinn</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>2500-3200 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Hübriid (2 päeva kontoris)</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Hübriid (2 p. kontoris)</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>29.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Kati Mänd, Arendusjuht, e-post: <a href="mailto:kati.mand@codecraft.ee">kati.mand@codecraft.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
@@ -915,38 +821,34 @@
             <div class="job-modal-body">
                 <h2>Tootejuht (IT)</h2>
                 <div class="job-meta">
-                    <span>📍 Tallinn</span>
-                    <span>💰 3500-4800€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Hübriid (1 p. kodus)</span>
+                    <span>Registrikood: 14567895</span>
+                    <span>Avaldatud: 25.08.2025</span>
+                    <span>Tööpakkumise nr: 1754239</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>IT lahenduste tootearenduse juhtimine</li>
-                    <li>Kasutajakogemuse disaini koordineerimine</li>
-                    <li>Turuvajaduste analüüsimine</li>
-                    <li>Arendusmeeskondade suunamine</li>
-                    <li>Toote strateegia väljatöötamine</li>
-                </ul>
+                <p>Otsime tootejuhti IT lahenduste arendamiseks. Eeldame kogemust kasutajakogemuse disaini ja tootearenduse protsessidega ning analüütilist mõtlemist. Vastutad toote strateegia väljatöötamise ja meeskondade suunamise eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Konkurentsivõimelist töötasu</li>
-                    <li>Võimalust mõjutada toote arengut</li>
-                    <li>Kaasaegset töökeskkonda</li>
-                    <li>Professionaalset arengut</li>
-                    <li>Innovaatilisi lahendusi</li>
-                </ul>
+                <p>Huvitavaid IT projekte, hübriidtööd (1 päev kodus), arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>InnoTech Solutions</td></tr>
-                    <tr><td>Ametikoht</td><td>Tootejuht (IT)</td></tr>
-                    <tr><td>Asukoht</td><td>Tallinn</td></tr>
-                    <tr><td>Töötasu</td><td>3500-4800€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Harju maakond, Tallinn, Kesklinn</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>3500-4800 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Hübriid (1 päev kodus)</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Hübriid (1 p. kodus)</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>25.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Siim Saar, Tootejuht, e-post: <a href="mailto:siim.saar@innotech.ee">siim.saar@innotech.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
@@ -970,38 +872,34 @@
             <div class="job-modal-body">
                 <h2>IT Konsultant</h2>
                 <div class="job-meta">
-                    <span>📍 Tartu</span>
-                    <span>💰 2900-3800€</span>
-                    <span>⏰ Täistööaeg</span>
-                    <span>🏢 Kaugtöö võimalus</span>
+                    <span>Registrikood: 14567896</span>
+                    <span>Avaldatud: 27.08.2025</span>
+                    <span>Tööpakkumise nr: 1754240</span>
                 </div>
 
                 <h3>Tööülesanded</h3>
-                <ul>
-                    <li>Äriklientide nõustamine digitaliseerimise valdkonnas</li>
-                    <li>IT süsteemide juurutamise juhendamine</li>
-                    <li>Klientide koolitamine ja toetamine</li>
-                    <li>Digitaliseerimise lahenduste väljatöötamine</li>
-                    <li>Projektide koordineerimine ja järelvalve</li>
-                </ul>
+                <p>Vajame IT konsultanti äriklientide nõustamiseks digitaliseerimise valdkonnas. Eeldame kogemust erinevate IT süsteemide juurutamisega ja klientide koolitamisega ning head analüütilist mõtlemist. Vastutad projektide koordineerimise ja järelvalve eest.</p>
 
                 <h3>Omalt poolt pakume</h3>
-                <ul>
-                    <li>Kaugtöö võimalust</li>
-                    <li>Mitmekesiseid kliente ja projekte</li>
-                    <li>Professionaalset arengut</li>
-                    <li>Paindlikku töökorraldust</li>
-                    <li>Võimalust reisida</li>
-                </ul>
+                <p>Huvitavaid konsultatsiooni projekte, kaugtöö võimalust, arenemisvõimalusi, konkurentsivõimelist töötasu, sõbralikku meeskonda.</p>
 
-                <h3>Ametikoha detailid</h3>
+                <h3>Töökoha andmed</h3>
                 <table class="job-details-table">
-                    <tr><td>Ettevõte</td><td>DigitalAdvice OÜ</td></tr>
-                    <tr><td>Ametikoht</td><td>IT Konsultant</td></tr>
-                    <tr><td>Asukoht</td><td>Tartu</td></tr>
-                    <tr><td>Töötasu</td><td>2900-3800€</td></tr>
+                    <tr><td>Töökoha asukoht</td><td>Tartu maakond, Tartu</td></tr>
+                    <tr><td>Vabade töökohtade arv</td><td>1</td></tr>
+                    <tr><td>Töötasu lähtestus</td><td>2900-3800 eurot/kuus (bruto), sõltuvalt kogemusest</td></tr>
                     <tr><td>Tööaeg</td><td>Täistööaeg</td></tr>
-                    <tr><td>Töökorraldus</td><td>Kaugtöö võimalus</td></tr>
+                    <tr><td>Tööaja lähtestus</td><td>Kaugtöö võimalus</td></tr>
+                    <tr><td>Vahetetustega</td><td>Ei</td></tr>
+                    <tr><td>Töösuhte kestus</td><td>Tähtajatu</td></tr>
+                    <tr><td>Töösuhte asumise aeg</td><td>Kokkulepitud</td></tr>
+                </table>
+
+                <h3>Kandideerimise info</h3>
+                <table class="job-details-table">
+                    <tr><td>Kandideerimise tähtaeg</td><td>27.09.2025</td></tr>
+                    <tr><td>Vajalikud dokumendid</td><td>CV ja tööproovid</td></tr>
+                    <tr><td>Kontakt</td><td>Laura Veski, Konsultatsiooni juht, e-post: <a href="mailto:laura.veski@digitaladvice.ee">laura.veski@digitaladvice.ee</a></td></tr>
                 </table>
             </div>
             <div class="job-modal-footer">
