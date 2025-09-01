@@ -269,14 +269,23 @@
 
             </div>
 
-            <!-- Skills-based Recommendations Header -->
-            <div class="job-offers-header" style="display: flex; justify-content: space-between; align-items: center; margin: 32px 0 24px 0; position: relative;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <h2 style="margin: 0; font-size: 1.5rem; color: var(--text-color);">Oskuste põhjal soovitatud tööpakkumised</h2>
+            <!-- Skills-based Recommendations Accordion -->
+            <div class="skills-recommendations-accordion" style="margin-top: 32px;">
+                <div class="accordion-header" onclick="toggleSkillsRecommendations()" style="background: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 0;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <h2 style="margin: 0; font-size: 1.5rem; color: var(--text-color);">Oskuste põhjal soovitatud tööpakkumised</h2>
+                            <span style="background: var(--primary-color); color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 600;">6 töökohta</span>
+                        </div>
+                        <svg id="skills-accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--text-color); transition: transform 0.3s ease;">
+                            <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p style="margin: 8px 0 0 0; color: #666; font-size: 14px;">Sinu profiili ja oskuste põhjal sobivad tööpakkumised</p>
                 </div>
-            </div>
-
-            <div class="job-listings-container">
+                
+                <div id="skills-recommendations-content" class="accordion-content" style="display: none; padding: 0; border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 8px 8px; background: var(--card-background);">
+                    <div class="job-listings-container" style="padding: 24px;")
 
                 <!-- Job 4: IT Projektijuht (TechNordic) -->
                 <div class="job-card">
@@ -447,6 +456,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </div>
 
@@ -1424,6 +1434,31 @@
         .skills-info-banner .info-link:hover {
             text-decoration: underline;
         }
+
+        /* Skills Recommendations Accordion Styles */
+        .skills-recommendations-accordion .accordion-header:hover {
+            background: var(--card-hover-background) !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .accordion-content {
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
+        }
     </style>
 
     <script>
@@ -1900,6 +1935,20 @@ Lugupidamisega,
                     window.location.href = `job-details.html?job=${jobId}`;
                 }
             }, 100);
+        }
+
+        // Skills Recommendations Accordion functionality
+        function toggleSkillsRecommendations() {
+            const content = document.getElementById('skills-recommendations-content');
+            const arrow = document.getElementById('skills-accordion-arrow');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+            }
         }
     </script>
     <script src="script.js"></script>
